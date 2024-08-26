@@ -1,38 +1,153 @@
+/* src/App.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #181818;
+  color: #fff;
+}
+
 .App {
-  text-align: center;
+  display: flex;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.left-panel {
+  width: 30%;
+  padding: 20px;
+  background-color: #121212;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.right-panel {
+  width: 70%;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.left-panel h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.left-panel nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.left-panel nav ul li {
+  cursor: pointer;
+  color: #b3b3b3;
+  font-size: 16px;
+}
+
+.left-panel input {
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  width: 100%;
+  background-color: #2a2a2a;
+  color: #fff;
+}
+
+.song-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.song-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: #2a2a2a;
+  transition: background-color 0.3s;
+}
+
+.song-item:hover {
+  background-color: #333;
+}
+
+.song-item img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.song-details {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.song-details h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.song-details p {
+  margin: 0;
+  color: #b3b3b3;
+}
+
+.right-panel img {
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.player {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #333;
+  border-radius: 20px;
+}
+
+.player button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.player button:focus {
+  outline: none;
+}
+
+.player audio {
+  width: 100%;
+  margin: 0 10px;
+}
+/* src/App.css */
+.song-item.active {
+  background-color: #555;
+}
+/* src/App.css */
+.progress-bar {
+  flex: 1;
+  height: 5px;
+  background-color: #777;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.progress {
+  height: 100%;
+  background-color: #1db954;
+  border-radius: 5px;
 }
