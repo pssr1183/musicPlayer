@@ -17,6 +17,7 @@ const [backgroundColor, setBackgroundColor] = useState('#181818'); // Default ba
   useEffect(() => {
     const loadSongs = async () => {
       const songsData = await fetchSongs();
+      console.log(songsData);
       setSongs(songsData);
       if (songsData.length > 0) {
         setCurrentSong(songsData[0]); // Set the first song as the current song by default
@@ -38,13 +39,13 @@ useEffect(() => {
     song.artist.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Function to filter songs based on the current tab
+  
   const getSongsForCurrentTab = () => {
     switch (currentTab) {
       case 'For You':
-        return filteredSongs.slice(0,5); // Example: Skip the first 5 songs after 5 have been played
+        return filteredSongs; 
       case 'Top Picks':
-        return filteredSongs.slice(0, 10); // Top 10 songs as an example
+        return filteredSongs.filter(song => song.top_track); 
       default:
         return filteredSongs;
     }
@@ -52,11 +53,19 @@ useEffect(() => {
 
   const songsForCurrentTab = getSongsForCurrentTab();
 
+  // Reset the application to the original state
+  const resetApp = () => {
+    setCurrentTab('For You');
+    setSearchTerm('');
+    setCurrentSong(songs[0]);
+    setBackgroundColor('#181818'); // Reset background color
+  };
+
 
   return (
     <div className="App" style={{ background: `linear-gradient(${backgroundColor}, #181818)` }}>
       <div className="left-panel">
-        <h1>GrooveSpot</h1>
+      <h1 onClick={resetApp} style={{ cursor: 'pointer' }}>GrooveSpot</h1>
         <nav>
           <ul>
             <li
