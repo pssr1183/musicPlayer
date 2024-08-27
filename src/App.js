@@ -56,7 +56,7 @@ useEffect(() => {
   return (
     <div className="App" style={{ background: `linear-gradient(${backgroundColor}, #181818)` }}>
       <div className="left-panel">
-        <h1>Spotify</h1>
+        <h1>GrooveSpot</h1>
         <nav>
           <ul>
             <li
